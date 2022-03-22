@@ -27,6 +27,22 @@ client = commands.Bot(command_prefix = '<') #put your own prefix here
 @client.event
 async def on_ready():
     print("bot online")
+    while online == True:
+      for I in range(0,11):
+        try:
+          with Client(str(address), 27015, passwd=password, timeout=1.5) as rcon:
+          response = rcon.run("players")
+          print(response)
+          number = str(I)
+         if number in response:
+           game = discord.Activity(type=discord.ActivityType.watching, name=(number + "/32 player(s)"))
+           await client.change_presence(status=discord.Status.online, activity=game)
+           await asyncio.sleep(0.1)
+        except OSError as timeout:
+          game = discord.Activity(type=discord.ActivityType.watching, name=("Server Offline"))
+          await client.change_presence(status=discord.Status.idle, activity=game)
+          await asyncio.sleep(0.1)
+    await asyncio.sleep(2)
   #will print "bot online" in the console when the bot is online
     
 @client.command()
