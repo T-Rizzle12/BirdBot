@@ -18,7 +18,8 @@ address = os.environ['ADDRESS']
 password = os.environ['PASSWORD']
 #^ PASSWORD is the server RCON Password. This is VERY CASE SENSITIVE!!!
 #PUT THE SERVER IP AND PASSWORD IN THE .env FILE THIS MAKES SURE THAT IF ANYONE GETS THE CODE FOR THE BOT THEY DONT HAVE YOUR RCON IP AND RCON PASSWORD
-global client, response, players
+global client, response, players, online
+online = True
 
 client = discord.Client()
 
