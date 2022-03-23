@@ -29,7 +29,7 @@ client = commands.Bot(command_prefix = '<') #put your own prefix here
 async def on_ready():
     print("bot online")
     while online == True:
-      for I in range(0,11):
+      for I in range(0,33):
         try:
           with Client(str(address), 27015, passwd=password, timeout=1.5) as rcon:
             response = rcon.run("players")
@@ -44,7 +44,7 @@ async def on_ready():
           await client.change_presence(status=discord.Status.idle, activity=game)
           await asyncio.sleep(0.1)
     await asyncio.sleep(2)
-  #will print "bot online" in the console when the bot is online
+  #will print "bot online" in the console when the bot is online this will also show how many players are in the server as its status
     
 @client.command()
 async def ping(ctx):
