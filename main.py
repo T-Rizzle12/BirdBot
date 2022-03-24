@@ -43,6 +43,7 @@ async def on_ready():
           game = discord.Activity(type=discord.ActivityType.watching, name=("Server Offline"))
           await client.change_presence(status=discord.Status.idle, activity=game)
           await asyncio.sleep(1)
+          break
     await asyncio.sleep(5)
   #will print "bot online" in the console when the bot is online this will also show how many players are in the server as its status
     
