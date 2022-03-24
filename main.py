@@ -39,7 +39,7 @@ async def on_ready():
             game = discord.Activity(type=discord.ActivityType.watching, name=(number + "/32 player(s)"))
             await client.change_presence(status=discord.Status.online, activity=game)
             await asyncio.sleep(0.1)
-        except OSError as timeout:
+        except:
           game = discord.Activity(type=discord.ActivityType.watching, name=("Server Offline"))
           await client.change_presence(status=discord.Status.idle, activity=game)
           await asyncio.sleep(1)
