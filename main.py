@@ -42,8 +42,8 @@ async def on_ready():
         except OSError as timeout:
           game = discord.Activity(type=discord.ActivityType.watching, name=("Server Offline"))
           await client.change_presence(status=discord.Status.idle, activity=game)
-          await asyncio.sleep(0.1)
-    await asyncio.sleep(2)
+          await asyncio.sleep(1)
+    await asyncio.sleep(5)
   #will print "bot online" in the console when the bot is online this will also show how many players are in the server as its status
     
 @client.command()
