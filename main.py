@@ -69,6 +69,19 @@ async def servermsg(ctx, arg):
     client.run("servermsg " + arg)
     await ctx.send('Sent ' + arg + ' to the server')
     
+@client.command()
+async def adduser(ctx, arg, arg2):
+  await ctx.message.delete()
+  await ctx.author.send("Ok, let me add that user to the server.")
+  with Client(str(address), 27015, passwd=password) as rcon:
+   try:
+    response = rcon.run("adduser " + arg + " " + arg2)
+    await ctx.author.send('Added user with the name ' + arg + ' to the server')
+    await ctx.author.send(response)
+   except:
+     await ctx.author.send("An error occurred or that user already exists.")
+     await ctx.author.send("bb/adduser username password")
+    
 try:
   client.run(os.getenv("TOKEN"))
 except:
