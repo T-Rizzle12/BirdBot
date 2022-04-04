@@ -70,6 +70,9 @@ async def servermsg(ctx, arg):
     await ctx.send('Sent ' + arg + ' to the server')
     
 @client.command()
+@commands.has_permissions(manage_messages=True)
+#This adds a new user to the server whitelist, arg is the username and arg2 is the password 
+#Command is also limited to people with the manage_message permission to prevent unauthorized access to the server
 async def adduser(ctx, arg, arg2):
   await ctx.message.delete()
   await ctx.author.send("Ok, let me add that user to the server.")
